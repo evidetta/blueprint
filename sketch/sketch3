@@ -1,0 +1,57 @@
+n + n  [a,b,c] * |(x){ return x }|
+n - n  [a,b,c] > 0 |(x, y){return x + y}|
+n * n  [a,b,c] # |(x){return x == 2}|
+n / n  [a]..[b]
+n % n  [|(x){return 2}|]
+n ^ n  [a,b,c] : 0
+       [a,b,c] : 0,10
+b & b  [a,b,c] : $
+b | b  [a,b,c] : 4,$
+!b     [a,b,c] : b
+b ^ b  [a,b,c] : [b,c]
+       $[a,b,c]
+b == b ~[a,b,c]
+b != b
+
+n == n
+n != n
+n < n
+n > n
+n <= n
+n >= n
+
+n |> T
+b |> T
+s |> T
+
+s..s
+s : 0
+s : 0,10
+s : $
+s : 4,$
+s : "f"
+s : "gh"
+s : 4, $ - 1
+$ s
+~ s
+
+n = n
+
+<name>:T
+<name> -> lowercase letter -> (lowercase letter or _)* -> lowercase_letter
+
+number
+string
+boolean
+list_of T
+
+binary:string
+n:number =
+  binary |> list_of number * 
+    |(x) { 
+      return x ^ 2
+    }|
+  > 0 
+  |(x, y) {
+    return x + y
+  }|

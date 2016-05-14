@@ -1,0 +1,39 @@
+function increment:number (x:number)
+{
+  logic
+  {
+    return x + 1
+  }
+  test("Test description")
+  {
+    number a
+    arrange
+    {
+      a = 1
+    }
+    act(function (
+    assert(output = 2)
+  }
+}
+
+function main()
+{
+}
+
+injectors
+{
+  my_interface -> my_object
+}
+
+
+
+blueprint abc 
+{
+  inject my_interface
+
+  function init()
+  {
+    echo("Wazzup!")
+    my_interface.do_something()
+  }
+}

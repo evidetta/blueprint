@@ -1,0 +1,51 @@
+interface logger_interface
+{
+  log:void(s:string,level:log_level?)
+}
+
+blueprint stdout_logger
+{
+  init()
+  {
+  }
+
+  expose log:void(s:string,level:log_level?)
+  {
+    level? = log_level.DEBUG
+    echo(level .. ": " .. s, echo.STDOUT)
+
+    specs
+    {
+      test("")
+      {
+        s:string = "This is a test"
+        method(s, log_level.DEBUG)
+	assert(s == a)
+      }
+    }
+  }
+}
+
+blueprint component
+{
+  inject logger_interface
+  expose s:string
+  
+  init()
+  {
+  }
+
+  expose do_something:void()
+  {
+    logger_interface.log(s, log_level.DEBUG)
+  }
+}
+
+injectors
+{
+  logger_interface -> stdout_logger
+}
+
+c:component()
+c.s = "hello"
+c.do_something()
