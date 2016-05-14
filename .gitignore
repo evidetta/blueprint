@@ -1,2 +1,5 @@
 lex.yy.cc
-a.out
+*.out
+*.o
+blueprintc
+bin/**
