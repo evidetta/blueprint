@@ -8,11 +8,12 @@ CCSOURCES=main.cc $(LLGEN)
 LLSOURCES=scanner.ll
 OBJECTS=$(CCSOURCES:.cc=.o)
 EXECUTABLE=blueprintc
+BINROOT=./bin
 
 all: $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
-	$(CC) $(OBJECTS) -o $(EXECUTABLE)
+	$(CC) $(OBJECTS) -o $(BINROOT)/$(EXECUTABLE)
 
 .cc.o:
 	$(CC) $(CFLAGS) $< -o $@
@@ -21,4 +22,4 @@ $(LLGEN): $(LLSOURCES)
 	$(LL) $(LLFLAGS) $(LLSOURCES)
 
 clean:
-	rm $(LLGEN) $(OBJECTS) $(EXECUTABLE)
+	rm $(LLGEN) $(OBJECTS) $(BINROOT)/$(EXECUTABLE)
