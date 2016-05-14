@@ -1,4 +1,6 @@
 
+%option c++
+
 %{
 #include "y.tab.h"
 %}
@@ -14,7 +16,7 @@ comment          \/\/.*\n
 [ \t]
 {identifier}            { printf("IDENTIFIER: %s\n", yytext); return IDENTIFIER; }
 {string_literal}        { printf("STRING_LITERAL: %s\n", yytext); return STRING_LITERAL; }
-{comment}               
+{comment}
 .                       { printf("UNKNOWN: %s\n", yytext); return UNKNOWN; }
 %%
 
