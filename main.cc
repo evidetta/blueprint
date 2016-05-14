@@ -11,7 +11,7 @@ int main(int argc, char** argv)
 
   try
   {
-    cout << "Blueprint compiler v0.01." << endl;
+    cout << "Blueprint compiler v0.01." << endl << endl;
 
     istream* inputStream;
 
