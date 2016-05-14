@@ -1,4 +1,5 @@
 lex.yy.cc
+lex.blueprint.cc
 *.out
 *.o
 blueprintc

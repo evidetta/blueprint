@@ -3,7 +3,7 @@ CFLAGS=-c -Wall
 LDFLAGS=
 LL=flex
 LLFLAGS=
-LLGEN=lex.yy.cc
+LLGEN=lex.blueprint.cc
 CCSOURCES=main.cc $(LLGEN)
 LLSOURCES=scanner.ll
 OBJECTS=$(CCSOURCES:.cc=.o)

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 
-#include <FlexLexer.h>
+#include "scanner.hh"
 
 using namespace std;
 
@@ -32,11 +32,11 @@ int main(int argc, char** argv)
       inputStream = &cin;
     }
 
-    FlexLexer* lexer = new yyFlexLexer(inputStream);
+    Scanner* scanner = new Scanner(inputStream);
 
     cout << "Performing compliation..." << endl << endl;
 
-    while(lexer->yylex() != 0);
+    while(scanner->yylex() != 0);
     return 0;
   }
   catch(ifstream::failure e)
